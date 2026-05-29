@@ -2,6 +2,11 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Project Context
+
+- **PRD 문서**: @docs/PRD.md - 제품 요구사항 및 기능 정의서
+- **개발 로드맵**: @docs/ROADMAP.md - 단계별 개발 계획 및 타임라인
+
 ## 개발 명령어
 
 ```bash
