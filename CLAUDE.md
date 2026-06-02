@@ -1,8 +1,14 @@
-# CLAUDE.md
+# Notion Portfolio CMS
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+**Notion API를 활용한 개발자 포트폴리오 CMS 사이트**
+
+📋 상세 프로젝트 요구사항은 @docs/PRD.md 참조 | 📅 개발 로드맵은 @docs/ROADMAP.md 참조
+
+---
 
 ## Project Context
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 - **PRD 문서**: @docs/PRD.md - 제품 요구사항 및 기능 정의서
 - **개발 로드맵**: @docs/ROADMAP.md - 단계별 개발 계획 및 타임라인
