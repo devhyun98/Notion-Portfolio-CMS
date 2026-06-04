@@ -4,7 +4,6 @@
   "devCommand": "next dev",
   "installCommand": "npm install",
   "framework": "nextjs",
-  "nodeVersion": "20.x",
   "env": {
     "NOTION_API_KEY": {
       "description": "Notion API Key (from Notion Settings → API Integration)",
@@ -19,14 +18,6 @@
       "required": true
     }
   },
-  "builds": [
-    {
-      "src": "next.config.ts",
-      "use": "@vercel/next"
-    }
-  ],
-  "redirects": [],
-  "rewrites": [],
   "headers": [
     {
       "source": "/sitemap.xml",
