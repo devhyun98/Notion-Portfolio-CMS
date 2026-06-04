@@ -10,6 +10,16 @@ export const notion = new NotionClient({
   auth: apiKey,
 })
 
+// 디버깅: 클라이언트 객체 검증
+if (typeof notion.databases?.query !== 'function') {
+  console.error('❌ Notion Client 초기화 실패:', {
+    notionType: typeof notion,
+    databasesType: typeof notion.databases,
+    queryType: typeof notion.databases?.query,
+    keys: Object.keys(notion),
+  })
+}
+
 // 환경 변수 검증
 export function validateNotionEnv() {
   const errors: string[] = []
