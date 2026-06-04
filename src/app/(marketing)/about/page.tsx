@@ -1,58 +1,63 @@
+import Link from 'next/link'
 import { Mail, Code, Heart, Share2 } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb'
+import { aboutData } from '@/lib/about-data'
 
 export const metadata = {
   title: '소개 | Notion Portfolio',
   description: '개발자 소개 및 기술 스택',
 }
 
-const skills = {
-  languages: ['JavaScript', 'TypeScript', 'Python'],
-  frontend: ['React', 'Next.js', 'Tailwind CSS', 'shadcn/ui'],
-  backend: ['Node.js', 'Express', 'PostgreSQL'],
-  tools: ['Git', 'Docker', 'AWS', 'Vercel'],
-}
-
-const experience = [
-  {
-    title: '소프트웨어 엔지니어',
-    company: '현직',
-    duration: '2024 - 현재',
-    description: 'Full-stack 개발 및 프로젝트 관리',
-  },
-  {
-    title: '주니어 개발자',
-    company: '이전 회사',
-    duration: '2023 - 2024',
-    description: 'React 및 Node.js를 활용한 웹 개발',
-  },
-]
+const skills = aboutData.skills
+const experience = aboutData.experience
 
 export default function AboutPage() {
   return (
     <div className="space-y-16">
+      {/* 브레드크럼 */}
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">홈</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>소개</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
       {/* 프로필 섹션 */}
       <section className="space-y-6">
         <div className="space-y-4">
           <h1 className="text-5xl font-bold">안녕하세요</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl">
-            저는 풀스택 웹 개발자로, 사용자 중심의 솔루션을 만드는 것을 좋아합니다.
-            Next.js, React, TypeScript를 주로 사용하며, 현대적이고 효율적인
-            웹 애플리케이션 개발에 집중하고 있습니다.
+          <p className="text-lg text-muted-foreground font-semibold">
+            {aboutData.profile.title}
+          </p>
+          <p className="text-base text-foreground/80 max-w-2xl">
+            {aboutData.profile.bio}
           </p>
         </div>
 
         {/* 연락처 */}
         <div className="flex gap-4 flex-wrap">
           <a
-            href="mailto:devhyun98@gmail.com"
+            href={`mailto:${aboutData.profile.email}`}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-foreground/20 hover:bg-foreground/5 transition-colors"
           >
             <Mail className="w-4 h-4" />
             이메일
           </a>
           <a
-            href="https://github.com"
+            href={aboutData.profile.github}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-foreground/20 hover:bg-foreground/5 transition-colors"
@@ -61,7 +66,7 @@ export default function AboutPage() {
             GitHub
           </a>
           <a
-            href="https://linkedin.com"
+            href={aboutData.profile.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-foreground/20 hover:bg-foreground/5 transition-colors"
@@ -70,7 +75,7 @@ export default function AboutPage() {
             LinkedIn
           </a>
           <a
-            href="https://twitter.com"
+            href={aboutData.profile.twitter}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-foreground/20 hover:bg-foreground/5 transition-colors"

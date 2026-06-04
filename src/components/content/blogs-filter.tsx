@@ -4,6 +4,7 @@ import { useFilters } from '@/hooks/use-filters'
 import { BlogCard } from '@/components/content/blog-card'
 import { SearchBox } from '@/components/content/search-box'
 import { TagFilter } from '@/components/content/tag-filter'
+import { FilterSheet } from '@/components/content/filter-sheet'
 
 export interface FilteredBlog {
   id: string
@@ -41,25 +42,41 @@ export function BlogsFilter({ blogs }: BlogsFilterProps) {
     <div className="space-y-8">
       {/* 검색 및 필터 섹션 */}
       <div className="space-y-6">
-        {/* 검색 박스 */}
-        <SearchBox
-          query={searchQuery}
-          onSearchChange={setSearch}
-          placeholder="글 검색... (제목, 설명)"
-        />
+        {/* 필터 헤더 (모바일/데스크톱) */}
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex-1 md:flex-none">
+            <SearchBox
+              query={searchQuery}
+              onSearchChange={setSearch}
+              placeholder="글 검색... (제목, 설명)"
+            />
+          </div>
+          {/* 모바일용 필터 버튼 */}
+          <FilterSheet
+            allTags={allTags}
+            selectedTags={selectedTags}
+            searchQuery={searchQuery}
+            onTagToggle={toggleTag}
+            onSearchChange={setSearch}
+            onClear={clearFilters}
+            isFiltered={isFiltered}
+          />
+        </div>
 
-        {/* 태그 필터 */}
-        <TagFilter
-          allTags={allTags}
-          selectedTags={selectedTags}
-          onTagToggle={toggleTag}
-          onClear={clearFilters}
-        />
+        {/* 데스크톱용 태그 필터 */}
+        <div className="hidden md:block">
+          <TagFilter
+            allTags={allTags}
+            selectedTags={selectedTags}
+            onTagToggle={toggleTag}
+            onClear={clearFilters}
+          />
+        </div>
 
         {/* 필터 상태 표시 */}
         {isFiltered && (
           <p className="text-sm text-muted-foreground">
-            {results.length}개의 글 found
+            {results.length}개의 글
           </p>
         )}
       </div>

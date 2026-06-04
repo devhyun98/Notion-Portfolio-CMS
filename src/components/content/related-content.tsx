@@ -11,16 +11,16 @@ interface RelatedItem {
   date: string
   slug: string
   featuredImage?: string
+  readingTime?: number
+  category?: string
 }
 
 interface RelatedProjectItem extends RelatedItem {
-  readingTime?: never
-  category?: never
+  readingTime?: undefined
 }
 
 interface RelatedBlogItem extends RelatedItem {
   readingTime: number
-  category?: string
 }
 
 interface RelatedContentProps<T extends RelatedItem> {

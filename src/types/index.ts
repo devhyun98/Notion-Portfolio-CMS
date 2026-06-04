@@ -191,8 +191,7 @@ export interface PaymentRecord {
 }
 
 // 프로젝트 포트폴리오 (포트폴리오에 표시되는 프로젝트)
-export interface PortfolioProject extends NotionItem {
-  type: "portfolio"
+export interface PortfolioProject extends ProjectDetail {
   clientName?: string // 클라이언트명
   projectStatus?: "진행 중" | "완료" | "보류"
   startDate?: string

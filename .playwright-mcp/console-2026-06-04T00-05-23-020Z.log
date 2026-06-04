@@ -114,3 +114,950 @@ https://react.dev/link/hydration-mismatch
 [  614945ms] [LOG] [Fast Refresh] done in 530ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
 [  615049ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
 [  615122ms] [LOG] [Fast Refresh] done in 176ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1138384ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1138576ms] [LOG] [Fast Refresh] done in 293ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1211690ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1211891ms] [LOG] [Fast Refresh] done in 315ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1213701ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1213848ms] [LOG] [Fast Refresh] done in 257ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1220570ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1220692ms] [LOG] [Fast Refresh] done in 235ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1220849ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1220983ms] [LOG] [Fast Refresh] done in 218ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1221099ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1221512ms] [LOG] [Fast Refresh] done in 526ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1222619ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1222636ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1229151ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1229583ms] [LOG] [Fast Refresh] done in 83ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1258116ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=Nk1c8UQpS_BGHaYpdZMcj' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13322
+[ 1259715ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1260619ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1260644ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1263360ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1263447ms] [LOG] [Fast Refresh] done in 193ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1270487ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1270569ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3318
+[ 1270728ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1270948ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3318
+[ 1270996ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3318
+[ 1271107ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1271316ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/about?_rsc=5s_-KuiGq7LxzXyJ:0
+[ 1271318ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3318
+[ 1271337ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/about?_rsc=5s_-KuiGq7LxzXyJ:0
+[ 1271373ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/about:0
+[ 1271473ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_react-dom_0bruynb._.js:15305
+[ 1271526ms] Error: ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx
+
+
+    at <unknown> (Error: ./src/lib/notion-fetch.ts:2:1)
+    at Object.getCompilationErrors (file://C:\Users\User\workspace\courses\notion-cms-project\node_modules\next\dist\server\dev\hot-reloader-turbopack.js:1186:59)
+    at DevBundlerService.getCompilationError (file://C:\Users\User\workspace\courses\notion-cms-project\node_modules\next\dist\server\lib\dev-bundler-service.js:44:55)
+    at DevServer.getCompilationError (file://C:\Users\User\workspace\courses\notion-cms-project\node_modules\next\dist\server\dev\next-dev-server.js:720:42)
+    at DevServer.findPageComponents (file://C:\Users\User\workspace\courses\notion-cms-project\node_modules\next\dist\server\dev\next-dev-server.js:690:43)
+    at async DevServer.renderErrorToResponseImpl (file://C:\Users\User\workspace\courses\notion-cms-project\node_modules\next\dist\server\base-server.js:1753:26)
+[ 1271527ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[ 1271544ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1271596ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1271653ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1271714ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1271775ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1271838ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1271901ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1271964ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1272026ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1272088ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1272149ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1272210ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1272274ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1272338ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1272400ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1272461ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1272523ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1272585ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1272647ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1272710ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1272772ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1272836ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1272899ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1272961ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1273022ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1273085ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1273146ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1273208ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1273269ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1273331ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1273394ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1273456ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1273519ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1273580ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1273642ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1273705ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1273767ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1273828ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1273890ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1273954ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1274017ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1274078ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1274142ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1274206ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1274267ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1274329ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1274392ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1274455ms] [ERROR] ./src/lib/notion-fetch.ts:2:1
+Export default doesn't exist in target module
+  1 | import { cache } from "react"
+> 2 | import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
+  4 | import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-en...
+  5 |
+
+The export default was not found in module [project]/src/lib/notion.ts [app-rsc] (ecmascript).
+Did you mean to import validateNotionEnv?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/notion-fetch.ts
+    ./src/app/(marketing)/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[ 1274513ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[ 1274563ms] [LOG] [Fast Refresh] done in 102ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[ 1274687ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[ 1274702ms] [LOG] [Fast Refresh] done in 121ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[ 1275081ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1275100ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1275220ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477
+[ 1275221ms] [LOG] [Fast Refresh] done in 101ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2477

@@ -3,31 +3,116 @@ import { notion, NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "
 import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
 import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-endpoints"
 
+// 다양한 Notion 속성 타입에서 텍스트 추출
+function extractPlainText(property: any): string {
+  if (!property) return ""
+
+  // rich_text 타입
+  if (property.rich_text && Array.isArray(property.rich_text)) {
+    return property.rich_text.map((rt: any) => rt.plain_text).join("")
+  }
+
+  // title 타입
+  if (property.title && Array.isArray(property.title)) {
+    return property.title.map((rt: any) => rt.plain_text).join("")
+  }
+
+  // formula 결과
+  if (property.formula?.string) {
+    return property.formula.string
+  }
+
+  // rollup 결과
+  if (property.rollup?.string) {
+    return property.rollup.string
+  }
+
+  // relation
+  if (property.relation && Array.isArray(property.relation)) {
+    return property.relation.map((r: any) => r.id).join(", ")
+  }
+
+  return ""
+}
+
 // Notion 페이지를 NotionItem으로 변환
 function parseNotionPage(page: PageObjectResponse): NotionItem | null {
   try {
     const properties = page.properties as Record<string, any>
 
-    // 필수 속성 추출
-    const title = properties.title?.title?.[0]?.plain_text || ""
-    const typeSelect = properties.type?.select?.name || ""
-    const descriptionRichText = properties.description?.rich_text || []
-    const contentRichText = properties.content?.rich_text || []
-    const tagsSelect = properties.tags?.multi_select || []
-    const dateDate = properties.date?.date?.start || new Date().toISOString()
-    const slugRichText = properties.slug?.rich_text || []
-    const publishedCheckbox = properties.published?.checkbox ?? false
-    const featuredImageFile = properties.featuredImage?.files?.[0]
-    const categorySelect = properties.category?.select?.name
+    // 여러 가능한 속성명 시도 (데이터베이스 구조 유연성)
+    const title =
+      extractPlainText(properties.title) ||
+      extractPlainText(properties["견적서 번호"]) ||
+      extractPlainText(properties["클라이언트명"]) ||
+      extractPlainText(properties["Name"]) ||
+      extractPlainText(properties["Title"]) ||
+      ""
 
-    if (!title || !typeSelect) {
+    const typeSelect =
+      properties.type?.select?.name ||
+      properties["Type"]?.select?.name ||
+      "project" // 기본값: project
+
+    const descriptionText =
+      extractPlainText(properties.description) ||
+      extractPlainText(properties["설명"]) ||
+      extractPlainText(properties["Description"]) ||
+      ""
+
+    const contentText =
+      extractPlainText(properties.content) ||
+      extractPlainText(properties["내용"]) ||
+      extractPlainText(properties["Content"]) ||
+      ""
+
+    const tagsSelect =
+      properties.tags?.multi_select ||
+      properties["Tags"]?.multi_select ||
+      properties["항목"]?.multi_select ||
+      []
+
+    const dateDate =
+      properties.date?.date?.start ||
+      properties["발행일"]?.date?.start ||
+      properties["Date"]?.date?.start ||
+      properties["Created"]?.created_time ||
+      new Date().toISOString()
+
+    const slugText = extractPlainText(properties.slug) ||
+      extractPlainText(properties["Slug"]) ||
+      ""
+
+    const publishedCheckbox =
+      properties.published?.checkbox ??
+      properties["Published"]?.checkbox ??
+      true // 기본값: 공개
+
+    const featuredImageFile =
+      properties.featuredImage?.files?.[0] ||
+      properties["이미지"]?.files?.[0] ||
+      properties["Image"]?.files?.[0]
+
+    const categorySelect =
+      properties.category?.select?.name ||
+      properties["Category"]?.select?.name
+
+    if (!title) {
+      console.debug(`⚠️  제목 없음 - 파싱 스킵`)
       return null
     }
 
-    // Rich Text를 plain text로 변환
-    const description = descriptionRichText.map((rt: RichTextItemResponse) => rt.plain_text).join("")
-    const content = contentRichText.map((rt: RichTextItemResponse) => rt.plain_text).join("")
-    const slug = slugRichText.map((rt: RichTextItemResponse) => rt.plain_text).join("")
+    // 설명 생성: description이 있으면 사용, 없으면 content 첫 150자
+    const description =
+      descriptionText ||
+      contentText.substring(0, 150) ||
+      ""
+
+    const content = contentText
+
+    // Slug 생성: 기존 slug 사용 또는 title에서 생성
+    const slug = slugText ||
+      title.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "")
 
     // 이미지 URL 추출
     let featuredImage: string | undefined
@@ -45,7 +130,7 @@ function parseNotionPage(page: PageObjectResponse): NotionItem | null {
       content,
       tags: tagsSelect.map((tag: any) => tag.name),
       date: dateDate,
-      slug: slug || title.toLowerCase().replace(/\s+/g, "-"),
+      slug: slug,
       published: publishedCheckbox,
       featuredImage,
       category: categorySelect,
@@ -72,9 +157,45 @@ export const getNotionDatabase = cache(async () => {
       // 클라이언트에서 JavaScript로 처리
     })
 
+    console.log(`📊 Notion API 응답: 총 ${response.results.length}개 항목`)
+
+    if (response.results.length > 0) {
+      const first = response.results[0] as any
+      console.log('📝 첫 번째 항목의 속성과 타입:')
+      if (first.properties) {
+        Object.keys(first.properties).forEach(key => {
+          const prop = first.properties[key]
+          const type = prop.type || 'unknown'
+          let value = '(empty)'
+          try {
+            if (prop.rich_text) {
+              value = prop.rich_text.map((rt: any) => rt.plain_text).join("")
+            } else if (prop.title) {
+              value = prop.title.map((rt: any) => rt.plain_text).join("")
+            } else if (prop.select) {
+              value = prop.select.name
+            } else if (prop.date) {
+              value = prop.date.start
+            }
+          } catch (e) {
+            value = '(extraction error)'
+          }
+          const preview = value.substring(0, 30) || '(empty)'
+          console.log(`   - [${type}] ${key}: "${preview}"`)
+        })
+      }
+    }
+
     const items = response.results
       .map((page: any) => parseNotionPage(page as PageObjectResponse))
       .filter((item: any): item is NotionItem => item !== null)
+
+    console.log(`✅ 파싱된 항목: ${items.length}개`)
+    if (items.length > 0) {
+      items.forEach((item, idx) => {
+        console.log(`   [${idx + 1}] ${item.title} (type: ${item.type})`)
+      })
+    }
 
     return items
   } catch (error: any) {

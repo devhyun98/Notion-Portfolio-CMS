@@ -106,7 +106,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <TagBadge
               key={tag}
               tag={tag}
-              href={`/projects?tags=${tag}`}
+              href={`/tags/${encodeURIComponent(tag)}`}
             />
           ))}
         </div>

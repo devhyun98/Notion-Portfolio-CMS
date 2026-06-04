@@ -141,7 +141,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
                   <TagBadge
                     key={tag}
                     tag={tag}
-                    href={`/blog?tags=${tag}`}
+                    href={`/tags/${encodeURIComponent(tag)}`}
                   />
                 ))}
               </div>

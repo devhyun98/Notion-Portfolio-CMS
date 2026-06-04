@@ -31,6 +31,11 @@ export const marketingNavItems: NavItem[] = [
     href: "/about",
     description: "자기소개 및 경력사항",
   },
+  {
+    title: "이력서",
+    href: "/resume",
+    description: "개발자 이력서",
+  },
 ]
 
 // 대시보드 네비게이션 (향후 관리자 기능)
