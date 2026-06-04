@@ -13,6 +13,7 @@ import {
 } from '@/components/ui/breadcrumb'
 import { MetaInfo } from '@/components/content/meta-info'
 import { TagBadge } from '@/components/content/tag-badge'
+import { RelatedProjects } from '@/components/content/related-content'
 import { getProjects, getProject } from '@/lib/notion-fetch'
 import { markdownToHtml } from '@/lib/markdown'
 import type { Metadata } from 'next'
@@ -60,6 +61,7 @@ interface ProjectPageProps {
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params
   const project = await getProject(slug)
+  const allProjects = await getProjects()
 
   if (!project) {
     notFound()
@@ -163,18 +165,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         )}
       </div>
 
-      {/* 구분선 */}
-      <hr className="my-8" />
-
-      {/* 다른 프로젝트 링크 */}
-      <div className="space-y-4">
-        <p className="text-sm text-muted-foreground">
-          같은 카테고리의 다른 프로젝트를 확인해보세요.
-        </p>
-        <Button variant="outline">
-          <Link href="/projects">모든 프로젝트 보기</Link>
-        </Button>
-      </div>
+      {/* 관련 프로젝트 */}
+      <RelatedProjects
+        currentProject={project}
+        allProjects={allProjects}
+        maxItems={3}
+      />
     </div>
   )
 }

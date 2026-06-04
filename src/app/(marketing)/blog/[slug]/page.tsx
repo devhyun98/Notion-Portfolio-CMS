@@ -13,6 +13,7 @@ import {
 } from '@/components/ui/breadcrumb'
 import { MetaInfo } from '@/components/content/meta-info'
 import { TagBadge } from '@/components/content/tag-badge'
+import { RelatedBlogs } from '@/components/content/related-content'
 import { getBlogs, getBlog } from '@/lib/notion-fetch'
 import { markdownToHtml, extractTableOfContents } from '@/lib/markdown'
 import type { Metadata } from 'next'
@@ -58,6 +59,7 @@ interface BlogPageProps {
 export default async function BlogPage({ params }: BlogPageProps) {
   const { slug } = await params
   const blog = await getBlog(slug)
+  const allBlogs = await getBlogs()
 
   if (!blog) {
     notFound()
@@ -173,18 +175,12 @@ export default async function BlogPage({ params }: BlogPageProps) {
         )}
       </div>
 
-      {/* 구분선 */}
-      <hr className="my-8" />
-
-      {/* 다른 글 링크 */}
-      <div className="space-y-4">
-        <p className="text-sm text-muted-foreground">
-          다른 글들도 읽어보세요.
-        </p>
-        <Link href="/blog">
-          <Button variant="outline">모든 글 보기</Button>
-        </Link>
-      </div>
+      {/* 관련 글 */}
+      <RelatedBlogs
+        currentBlog={blog}
+        allBlogs={allBlogs}
+        maxItems={3}
+      />
     </div>
   )
 }
