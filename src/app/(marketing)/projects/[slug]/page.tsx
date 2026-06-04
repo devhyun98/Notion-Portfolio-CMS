@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { ArrowLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -153,10 +154,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       {/* 대표 이미지 */}
       {project.featuredImage && (
         <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-muted">
-          {/* TODO: Next.js Image 컴포넌트로 대체 예정 */}
-          <img
+          <Image
             src={project.featuredImage}
             alt={project.title}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 60vw"
+            priority={true}
             className="w-full h-full object-cover"
           />
         </div>
