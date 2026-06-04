@@ -1,0 +1,108 @@
+- generic [active] [ref=e1]:
+  - button "Open Next.js Dev Tools" [ref=e7] [cursor=pointer]:
+    - img [ref=e8]
+  - generic [ref=e11]:
+    - banner [ref=e12]:
+      - generic [ref=e13]:
+        - link "Notion Portfolio CMS" [ref=e14] [cursor=pointer]:
+          - /url: /
+        - navigation [ref=e15]:
+          - link "프로젝트" [ref=e16] [cursor=pointer]:
+            - /url: /projects
+          - link "블로그" [ref=e17] [cursor=pointer]:
+            - /url: /blog
+          - link "소개" [ref=e18] [cursor=pointer]:
+            - /url: /about
+        - button "테마 전환" [ref=e20]:
+          - img
+          - generic [ref=e21]: 테마 전환
+    - main [ref=e22]:
+      - generic [ref=e24]:
+        - generic [ref=e25]:
+          - generic [ref=e26]:
+            - heading "안녕하세요" [level=1] [ref=e27]
+            - paragraph [ref=e28]: 저는 풀스택 웹 개발자로, 사용자 중심의 솔루션을 만드는 것을 좋아합니다. Next.js, React, TypeScript를 주로 사용하며, 현대적이고 효율적인 웹 애플리케이션 개발에 집중하고 있습니다.
+          - generic [ref=e29]:
+            - link "이메일" [ref=e30] [cursor=pointer]:
+              - /url: mailto:devhyun98@gmail.com
+              - img [ref=e31]
+              - text: 이메일
+            - link "GitHub" [ref=e34] [cursor=pointer]:
+              - /url: https://github.com
+              - img [ref=e35]
+              - text: GitHub
+            - link "LinkedIn" [ref=e38] [cursor=pointer]:
+              - /url: https://linkedin.com
+              - img [ref=e39]
+              - text: LinkedIn
+            - link "Twitter" [ref=e41] [cursor=pointer]:
+              - /url: https://twitter.com
+              - img [ref=e42]
+              - text: Twitter
+        - generic [ref=e48]:
+          - generic [ref=e49]:
+            - heading "기술 스택" [level=2] [ref=e50]
+            - paragraph [ref=e51]: 다양한 프로젝트에서 사용한 기술들입니다.
+          - generic [ref=e52]:
+            - generic [ref=e53]:
+              - heading "언어" [level=3] [ref=e54]
+              - generic [ref=e55]:
+                - generic [ref=e56]: JavaScript
+                - generic [ref=e57]: TypeScript
+                - generic [ref=e58]: Python
+            - generic [ref=e59]:
+              - heading "프론트엔드" [level=3] [ref=e60]
+              - generic [ref=e61]:
+                - generic [ref=e62]: React
+                - generic [ref=e63]: Next.js
+                - generic [ref=e64]: Tailwind CSS
+                - generic [ref=e65]: shadcn/ui
+            - generic [ref=e66]:
+              - heading "백엔드" [level=3] [ref=e67]
+              - generic [ref=e68]:
+                - generic [ref=e69]: Node.js
+                - generic [ref=e70]: Express
+                - generic [ref=e71]: PostgreSQL
+            - generic [ref=e72]:
+              - heading "도구" [level=3] [ref=e73]
+              - generic [ref=e74]:
+                - generic [ref=e75]: Git
+                - generic [ref=e76]: Docker
+                - generic [ref=e77]: AWS
+                - generic [ref=e78]: Vercel
+        - generic [ref=e79]:
+          - generic [ref=e80]:
+            - heading "경력사항" [level=2] [ref=e81]
+            - paragraph [ref=e82]: 다양한 프로젝트와 회사에서 경험을 쌓았습니다.
+          - generic [ref=e83]:
+            - generic [ref=e84]:
+              - generic [ref=e85]:
+                - heading "소프트웨어 엔지니어" [level=3] [ref=e86]
+                - generic [ref=e87]: 2024 - 현재
+              - paragraph [ref=e88]: 현직
+              - paragraph [ref=e89]: Full-stack 개발 및 프로젝트 관리
+            - generic [ref=e90]:
+              - generic [ref=e91]:
+                - heading "주니어 개발자" [level=3] [ref=e92]
+                - generic [ref=e93]: 2023 - 2024
+              - paragraph [ref=e94]: 이전 회사
+              - paragraph [ref=e95]: React 및 Node.js를 활용한 웹 개발
+    - contentinfo [ref=e96]:
+      - generic [ref=e98]:
+        - generic [ref=e99]:
+          - link "twitter" [ref=e100] [cursor=pointer]:
+            - /url: https://twitter.com
+            - text: Twitter
+          - link "github" [ref=e101] [cursor=pointer]:
+            - /url: https://github.com
+            - text: Github
+          - link "linkedin" [ref=e102] [cursor=pointer]:
+            - /url: https://linkedin.com
+            - text: Linkedin
+          - link "email" [ref=e103] [cursor=pointer]:
+            - /url: devhyun98@gmail.com
+            - text: Email
+        - generic [ref=e104]:
+          - paragraph [ref=e105]: © 2026 Notion Portfolio CMS. Notion API를 활용한 개발자 포트폴리오 CMS 사이트
+          - paragraph [ref=e106]: Powered by Next.js & Notion API
+  - region "Notifications alt+T"
