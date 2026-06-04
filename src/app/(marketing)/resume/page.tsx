@@ -1,8 +1,5 @@
 'use client'
 
-import { useRef } from 'react'
-import jsPDF from 'jspdf'
-import html2canvas from 'html2canvas'
 import { Download, Mail, Phone, MapPin, Globe } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -105,51 +102,11 @@ const resumeData = {
 }
 
 export default function ResumePage() {
-  const contentRef = useRef<HTMLDivElement>(null)
-
-  // PDF 다운로드 함수
-  const downloadPDF = async () => {
-    if (!contentRef.current) return
-
-    try {
-      // HTML을 Canvas로 변환
-      const canvas = await html2canvas(contentRef.current, {
-        scale: 2,
-        useCORS: true,
-        backgroundColor: '#ffffff',
-      })
-
-      // PDF 문서 생성
-      const pdf = new jsPDF({
-        orientation: 'portrait',
-        unit: 'mm',
-        format: 'a4',
-      })
-
-      const imgWidth = 210 // A4 너비 (mm)
-      const imgHeight = (canvas.height * imgWidth) / canvas.width
-      let heightLeft = imgHeight
-
-      let position = 0
-
-      // 여러 페이지로 나누어서 추가
-      const imgData = canvas.toDataURL('image/png')
-      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight)
-      heightLeft -= 297 // A4 높이 (mm)
-
-      while (heightLeft > 0) {
-        position = heightLeft - imgHeight
-        pdf.addPage()
-        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight)
-        heightLeft -= 297
-      }
-
-      // PDF 저장
-      pdf.save('resume.pdf')
-    } catch (error) {
-      console.error('PDF 생성 중 오류:', error)
-      alert('PDF 다운로드 중 오류가 발생했습니다.')
-    }
+  // PDF 다운로드 함수 (브라우저 인쇄 기능 사용)
+  const downloadPDF = () => {
+    // 페이지 제목을 파일명으로 설정
+    document.title = 'resume'
+    window.print()
   }
 
   // Schema.org JSON-LD 마크업 - Person 및 이력서 정보
@@ -205,8 +162,6 @@ export default function ResumePage() {
         </Button>
       </div>
 
-      {/* 이력서 컨텐츠 (PDF 변환용 ref) */}
-      <div ref={contentRef}>
       {/* 개인 정보 섹션 */}
       <section className="space-y-6">
         <div className="space-y-3">
@@ -358,7 +313,6 @@ export default function ResumePage() {
           </div>
         </section>
       )}
-      </div>
     </div>
     </>
   )
