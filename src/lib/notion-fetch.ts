@@ -59,7 +59,13 @@ function parseNotionPage(page: PageObjectResponse): NotionItem | null {
 // 데이터베이스에서 모든 항목 조회 (캐시됨)
 export const getNotionDatabase = cache(async () => {
   try {
-    const response = await (notion as any).databases.query({
+    // 환경 변수 검증
+    if (!NOTION_DATABASE_ID) {
+      console.warn('⚠️ NOTION_DATABASE_ID가 설정되지 않았습니다.')
+      return []
+    }
+
+    const response = await notion.databases.query({
       database_id: NOTION_DATABASE_ID,
       filter: {
         property: "published",

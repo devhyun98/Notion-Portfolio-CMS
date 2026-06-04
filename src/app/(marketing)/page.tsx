@@ -27,14 +27,11 @@ export default async function HomePage() {
         <div className="space-y-6 text-center">
           <div className="space-y-2">
             <h1 className="text-4xl md:text-6xl font-bold">
-              안녕하세요, 저는 개발자입니다.
+              Notion API를 활용한 개발자 포트폴리오 CMS 사이트
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground">
-              Notion API를 활용한 포트폴리오 사이트
-            </p>
           </div>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-            {siteConfig.description}
+            Notion 데이터베이스를 CMS로 활용하여 포트폴리오, 프로젝트, 블로그 콘텐츠를 쉽게 관리하고 웹에 자동으로 반영되는 개인 포트폴리오 사이트입니다.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button size="lg">
