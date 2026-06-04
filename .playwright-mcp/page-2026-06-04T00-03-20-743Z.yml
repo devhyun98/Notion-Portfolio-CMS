@@ -1,0 +1,62 @@
+- generic [ref=e1]:
+  - generic [ref=e42] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=e43]:
+      - img [ref=e44]
+    - generic [ref=e47]:
+      - button "Open issues overlay" [ref=e48]:
+        - generic [ref=e49]:
+          - generic [ref=e50]: "4"
+          - generic [ref=e51]: "5"
+        - generic [ref=e52]:
+          - text: Issue
+          - generic [ref=e53]: s
+      - button "Collapse issues badge" [ref=e54]:
+        - img [ref=e55]
+  - generic [ref=e57]:
+    - banner [ref=e58]:
+      - generic [ref=e59]:
+        - link "Notion Portfolio CMS" [ref=e60] [cursor=pointer]:
+          - /url: /
+        - navigation [ref=e61]:
+          - link "프로젝트" [ref=e62] [cursor=pointer]:
+            - /url: /projects
+          - link "블로그" [ref=e63] [cursor=pointer]:
+            - /url: /blog
+          - link "소개" [ref=e64] [cursor=pointer]:
+            - /url: /about
+        - button "테마 전환" [ref=e66]:
+          - img
+          - generic [ref=e67]: 테마 전환
+    - main [ref=e68]:
+      - generic [ref=e70]:
+        - generic [ref=e71]:
+          - heading "프로젝트" [level=1] [ref=e72]
+          - paragraph [ref=e73]: 진행했던 프로젝트들을 소개합니다.
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - generic [ref=e76]:
+              - textbox "프로젝트 검색... (제목, 설명)" [active] [ref=e77]: Next.js
+              - button "검색 초기화" [ref=e92]:
+                - img [ref=e93]
+            - paragraph [ref=e96]: 0개의 프로젝트 found
+          - paragraph [ref=e79]: 검색 결과가 없습니다.
+    - contentinfo [ref=e80]:
+      - generic [ref=e82]:
+        - generic [ref=e83]:
+          - link "twitter" [ref=e84] [cursor=pointer]:
+            - /url: https://twitter.com
+            - text: Twitter
+          - link "github" [ref=e85] [cursor=pointer]:
+            - /url: https://github.com
+            - text: Github
+          - link "linkedin" [ref=e86] [cursor=pointer]:
+            - /url: https://linkedin.com
+            - text: Linkedin
+          - link "email" [ref=e87] [cursor=pointer]:
+            - /url: devhyun98@gmail.com
+            - text: Email
+        - generic [ref=e88]:
+          - paragraph [ref=e89]: © 2026 Notion Portfolio CMS. Notion API를 활용한 개발자 포트폴리오 CMS 사이트
+          - paragraph [ref=e90]: Powered by Next.js & Notion API
+  - region "Notifications alt+T"
+  - alert [ref=e91]

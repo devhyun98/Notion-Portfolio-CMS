@@ -1,0 +1,57 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e6] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=e7]:
+      - img [ref=e8]
+    - generic [ref=e11]:
+      - button "Open issues overlay" [ref=e12]:
+        - generic [ref=e13]:
+          - generic [ref=e14]: "4"
+          - generic [ref=e15]: "5"
+        - generic [ref=e16]:
+          - text: Issue
+          - generic [ref=e17]: s
+      - button "Collapse issues badge" [ref=e18]:
+        - img [ref=e19]
+  - generic [ref=e21]:
+    - banner [ref=e22]:
+      - generic [ref=e23]:
+        - link "Notion Portfolio CMS" [ref=e24] [cursor=pointer]:
+          - /url: /
+        - navigation [ref=e25]:
+          - link "프로젝트" [ref=e26] [cursor=pointer]:
+            - /url: /projects
+          - link "블로그" [ref=e27] [cursor=pointer]:
+            - /url: /blog
+          - link "소개" [ref=e28] [cursor=pointer]:
+            - /url: /about
+        - button "테마 전환" [ref=e30]:
+          - img
+          - generic [ref=e31]: 테마 전환
+    - main [ref=e32]:
+      - generic [ref=e34]:
+        - generic [ref=e35]:
+          - heading "블로그" [level=1] [ref=e36]
+          - paragraph [ref=e37]: 개발 관련 글과 경험을 공유합니다.
+        - generic [ref=e38]:
+          - textbox "글 검색... (제목, 설명)" [ref=e41]
+          - paragraph [ref=e43]: 아직 등록된 글이 없습니다.
+    - contentinfo [ref=e44]:
+      - generic [ref=e46]:
+        - generic [ref=e47]:
+          - link "twitter" [ref=e48] [cursor=pointer]:
+            - /url: https://twitter.com
+            - text: Twitter
+          - link "github" [ref=e49] [cursor=pointer]:
+            - /url: https://github.com
+            - text: Github
+          - link "linkedin" [ref=e50] [cursor=pointer]:
+            - /url: https://linkedin.com
+            - text: Linkedin
+          - link "email" [ref=e51] [cursor=pointer]:
+            - /url: devhyun98@gmail.com
+            - text: Email
+        - generic [ref=e52]:
+          - paragraph [ref=e53]: © 2026 Notion Portfolio CMS. Notion API를 활용한 개발자 포트폴리오 CMS 사이트
+          - paragraph [ref=e54]: Powered by Next.js & Notion API
+  - region "Notifications alt+T"
+  - alert [ref=e55]
