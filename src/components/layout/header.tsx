@@ -7,6 +7,7 @@ import { Menu } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { ThemeToggle } from '@/components/common/theme-toggle'
+import { VisitorCounter } from '@/components/common/visitor-counter'
 import { Container } from '@/components/layout/container'
 import { siteConfig, marketingNavItems } from '@/lib/config'
 
@@ -46,6 +47,7 @@ export function Header() {
 
         {/* 오른쪽 아이콘들 */}
         <div className="flex items-center gap-2">
+          <VisitorCounter />
           <ThemeToggle />
 
           {/* 모바일 메뉴 */}
