@@ -68,18 +68,8 @@ export const getNotionDatabase = cache(async () => {
 
     const response = await notion.databases.query({
       database_id: NOTION_DATABASE_ID,
-      filter: {
-        property: "published",
-        checkbox: {
-          equals: true,
-        },
-      },
-      sorts: [
-        {
-          property: "date",
-          direction: "descending",
-        },
-      ],
+      // 필터와 정렬은 데이터베이스 구조에 따라 다르므로 제거
+      // 클라이언트에서 JavaScript로 처리
     })
 
     const items = response.results
@@ -175,7 +165,13 @@ export async function searchItems(query: string): Promise<NotionItem[]> {
 // 최신 항목 N개 조회
 export async function getRecentItems(count: number): Promise<NotionItem[]> {
   const allItems = await getNotionDatabase()
-  return allItems.slice(0, count)
+  // 날짜순으로 정렬 (최신순)
+  const sorted = [...allItems].sort((a, b) => {
+    const dateA = new Date(a.date).getTime()
+    const dateB = new Date(b.date).getTime()
+    return dateB - dateA
+  })
+  return sorted.slice(0, count)
 }
 
 // 모든 고유 태그 조회
