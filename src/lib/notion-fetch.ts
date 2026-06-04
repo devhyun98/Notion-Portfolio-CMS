@@ -61,7 +61,8 @@ export const getNotionDatabase = cache(async () => {
   try {
     // 환경 변수 검증
     if (!NOTION_DATABASE_ID) {
-      console.warn('⚠️ NOTION_DATABASE_ID가 설정되지 않았습니다.')
+      console.error('❌ 설정 오류: NOTION_DATABASE_ID가 설정되지 않았습니다.')
+      console.error('💡 해결: .env.local 파일에 NOTION_DATABASE_ID를 설정하세요.')
       return []
     }
 
@@ -86,8 +87,17 @@ export const getNotionDatabase = cache(async () => {
       .filter((item: any): item is NotionItem => item !== null)
 
     return items
-  } catch (error) {
-    console.error("Notion 데이터베이스 조회 오류:", error)
+  } catch (error: any) {
+    if (error.code === 'object_not_found') {
+      console.error('❌ Notion 데이터베이스 오류:')
+      console.error(`   데이터베이스 ID를 찾을 수 없습니다: ${NOTION_DATABASE_ID}`)
+      console.error('💡 해결 방법:')
+      console.error('   1. Notion에서 데이터베이스가 존재하는지 확인')
+      console.error('   2. 통합 "notion-cms-project"이 데이터베이스와 공유되었는지 확인')
+      console.error('   3. 데이터베이스 ID가 올바른지 확인 (https://www.notion.so/[DATABASE_ID])')
+    } else {
+      console.error('❌ Notion API 오류:', error.message)
+    }
     return []
   }
 })
