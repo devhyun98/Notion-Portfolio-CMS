@@ -20,7 +20,6 @@ build
 
 # 의존성 캐시
 node_modules
-package-lock.json
 pnpm-lock.yaml
 yarn.lock
 
