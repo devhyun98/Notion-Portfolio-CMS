@@ -257,31 +257,38 @@ interface TocItem { ... }
 
 ## Phase 5: 최적화 및 배포
 
-**상태**: ⏳ 진행 예정
+**상태**: ✅ Layer 2 진행 중 (SEO 최적화 완료)
 
 ### 목표
 프로덕션 배포를 위해 **성능, SEO, 보안**을 최적화하고 Vercel에 배포합니다.
 
 ### 포함 사항
 
-#### 5-1. SEO 최적화 (2-3일)
-- **동적 메타데이터 생성**
-  - 각 페이지에서 `generateMetadata()` 구현
-  - Open Graph (og:title, og:description, og:image)
+#### 5-1. SEO 최적화 (2-3일) ✅ 완료
+- ✅ **동적 메타데이터 생성**
+  - 각 페이지에서 `generateMetadata()` 구현 (이미 존재)
+  - Open Graph (og:title, og:description, og:image, og:type, og:url)
   - Twitter Card (twitter:card, twitter:image)
-  - Canonical URL
+  - Canonical URL (alternates.canonical)
+  - robots: 'index, follow' 설정
 
-- **Sitemap 자동 생성**
-  - `public/sitemap.xml` 생성 (또는 `app/sitemap.ts`)
-  - 모든 프로젝트, 블로그, 정적 페이지 포함
+- ✅ **Sitemap 자동 생성**
+  - `app/sitemap.ts` 생성 (동적 생성)
+  - 정적 라우트: /, /projects, /blog, /about, /resume
+  - 동적 라우트: /projects/[slug], /blog/[slug], /tags/[tag]
+  - lastModified, changeFrequency, priority 설정
 
-- **robots.txt**
-  - SEO 크롤러 가이드라인 설정
+- ✅ **robots.txt**
+  - `app/robots.ts` 생성
+  - User-Agent: * (모든 크롤러 허용)
+  - Disallow: /api, /_next, /static
+  - Sitemap URL 참조
 
-- **구조화된 데이터** (Schema.org JSON-LD)
-  - BlogPosting (블로그)
-  - SoftwareApplication (프로젝트)
-  - Person (자기소개)
+- ✅ **구조화된 데이터** (Schema.org JSON-LD)
+  - BlogPosting (블로그 상세)
+  - SoftwareApplication (프로젝트 상세)
+  - Person (홈페이지, About, Resume 페이지)
+  - 각 페이지에 JSON-LD script 태그로 삽입
 
 #### 5-2. 성능 최적화 (2-3일)
 - **이미지 최적화**
@@ -333,13 +340,22 @@ interface TocItem { ... }
 ### 예상 소요 시간
 6-8일 (약 48-64시간)
 
-### 완료 기준
+### 5-1 SEO 최적화 완료 기준
+- [x] `npm run build` 성공 (빌드 시간 ~1.8초)
+- [x] TypeScript 타입 검사 통과
+- [x] ESLint 통과 (기존 경고만 있음)
+- [x] robots.txt, sitemap.xml 정상 생성 및 빌드 포함
+- [x] 모든 페이지에 적절한 메타데이터 포함
+- [x] JSON-LD 마크업 모든 주요 페이지에 추가
+- [x] 환경 변수 기반 URL 설정 (NEXT_PUBLIC_SITE_URL)
+
+### 5-2, 5-3, 5-4, 5-5 향후 단계
 - [ ] Lighthouse 점수: 성능 90점 이상, SEO 95점 이상
-- [ ] `npm run build` 성공 (빌드 시간 < 60초)
 - [ ] Vercel 배포 완료
-- [ ] 모든 메타데이터 검증 완료
-- [ ] robots.txt, sitemap.xml 정상 생성
-- [ ] 프로덕션 URL에서 모든 기능 정상 작동
+- [ ] 이미지 최적화 (Next.js Image 컴포넌트)
+- [ ] 성능 최적화 및 캐싱 전략
+- [ ] 환경 변수 및 보안 검사
+- [ ] 크로스 브라우저 테스트
 
 ---
 
@@ -351,8 +367,8 @@ interface TocItem { ... }
 | **Phase 2** | 공통 모듈/컴포넌트 | 3-4일 | ~6시간 | ✅ 완료 |
 | **Phase 3** | 핵심 기능 (페이지) | 7-10일 | ~8시간 | ✅ 완료 |
 | **Phase 4** | 추가 기능 | 5-7일 | ~3시간 | ✅ 완료 |
-| **Phase 5** | 최적화 및 배포 | 6-8일 | - | ⏳ 진행 예정 |
-| **총 소요 시간** | - | **약 3-4주** | **~19시간** | Phase 4 완료 ✅ |
+| **Phase 5** | 최적화 및 배포 | 6-8일 | ~1시간 (5-1) | ✅ 5-1 완료 |
+| **총 소요 시간** | - | **약 3-4주** | **~20시간** | Phase 5-1 진행 중 ✅ |
 
 ---
 
@@ -380,34 +396,72 @@ interface TocItem { ... }
 
 ---
 
-### 📋 Phase 5 준비
+### ✅ Phase 5-1 SEO 최적화 완료! 🎉
 
-다음 단계 (Phase 5: 최적화 및 배포)에서 구현할 기능:
+**2026-06-04 구현된 기능:**
+- [x] Sitemap 자동 생성 (`app/sitemap.ts`)
+  - 정적 라우트: /, /projects, /blog, /about, /resume
+  - 동적 라우트: /projects/[slug], /blog/[slug], /tags/[tag]
+  - lastModified, changeFrequency, priority 설정
 
-1. **SEO 최적화** (2-3일)
-   - 동적 메타데이터 생성 (이미 구현됨)
-   - Sitemap 자동 생성
-   - robots.txt 설정
-   - 구조화된 데이터 (Schema.org JSON-LD)
+- [x] robots.txt 생성 (`app/robots.ts`)
+  - User-Agent: * (모든 크롤러 허용)
+  - Disallow: /api, /_next, /static
+  - Sitemap 참조
 
-2. **성능 최적화** (2-3일)
-   - 이미지 최적화 (Next.js Image)
+- [x] 메타데이터 확장 (모든 페이지)
+  - Open Graph: title, description, url, type, images
+  - Twitter Card: card, title, description, images
+  - Canonical URL: alternates.canonical
+  - robots: 'index, follow'
+
+- [x] Schema.org JSON-LD 추가
+  - 홈페이지: Person (이름, URL, 소셜 링크, 직책)
+  - 프로젝트 상세: SoftwareApplication (제목, 설명, 이미지, 날짜, 기술)
+  - 블로그 상세: BlogPosting (제목, 설명, 이미지, 작성/수정일, 작가, 태그)
+  - About: Person (이름, 직책, 소셜 링크, 경력)
+  - Resume: Person (이름, 직책, 이메일, 위치, 자격증)
+
+- [x] 환경 변수 기반 설정 (lib/config.ts)
+  - NEXT_PUBLIC_SITE_URL: 도메인 URL
+  - NEXT_PUBLIC_OG_IMAGE: OG 이미지 URL
+
+**새로운 파일:**
+- `src/app/sitemap.ts` - 동적 Sitemap 생성
+- `src/app/robots.ts` - robots.txt 생성
+
+**수정된 파일:**
+- `src/app/(marketing)/page.tsx` - 홈페이지 메타데이터 + JSON-LD
+- `src/app/(marketing)/projects/page.tsx` - 프로젝트 목록 메타데이터
+- `src/app/(marketing)/projects/[slug]/page.tsx` - 프로젝트 상세 메타데이터 + JSON-LD
+- `src/app/(marketing)/blog/page.tsx` - 블로그 목록 메타데이터
+- `src/app/(marketing)/blog/[slug]/page.tsx` - 블로그 상세 메타데이터 + JSON-LD
+- `src/app/(marketing)/about/page.tsx` - About 메타데이터 + JSON-LD
+- `src/app/(marketing)/resume/page.tsx` - Resume JSON-LD
+- `src/lib/config.ts` - 환경 변수 기반 URL 설정
+
+---
+
+### 📋 Phase 5 다음 단계
+
+2. **성능 최적화** (2-3일) - 진행 예정
+   - 이미지 최적화 (Next.js Image 컴포넌트)
    - 번들 최적화
    - 캐싱 전략 강화
    - Lighthouse 점수 개선
 
-3. **Vercel 배포** (1-2일)
+3. **Vercel 배포** (1-2일) - 진행 예정
    - GitHub 연결
    - 환경 변수 설정
    - Preview/Production 배포 설정
    - 성능 모니터링
 
-4. **테스트 및 검증** (1-2일)
+4. **테스트 및 검증** (1-2일) - 진행 예정
    - 전체 기능 테스트
    - 크로스 브라우저 테스트
-   - SEO 검증
+   - SEO 검증 (sitemap, robots, JSON-LD)
 
 ---
 
 **마지막 업데이트**: 2026-06-04
-**📊 진행 상황**: Phase 1-4 완료 ✅ | Phase 5 진행 예정
+**📊 진행 상황**: Phase 1-4 완료 ✅ | Phase 5-1 완료 ✅ | Phase 5-2~5 진행 예정
