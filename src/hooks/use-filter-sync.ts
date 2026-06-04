@@ -37,7 +37,6 @@ export function useFilterSync(
         category: category || undefined,
       })
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams])
 
   // 필터 변경 시 URL 업데이트

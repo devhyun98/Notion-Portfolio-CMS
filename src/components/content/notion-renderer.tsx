@@ -1,6 +1,7 @@
 'use client'
 
 import { useMemo } from "react"
+import Link from "next/link"
 
 // Notion Rich Text를 HTML로 렌더링하는 컴포넌트
 interface NotionRendererProps {
@@ -13,7 +14,7 @@ export function NotionRenderer({ content, className }: NotionRendererProps) {
   const htmlContent = useMemo(() => {
     if (!content) return ""
 
-    const html = content
+    let html = content
       // 굵은 글씨 (**text**)
       .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
       // 이탤릭 (*text*)

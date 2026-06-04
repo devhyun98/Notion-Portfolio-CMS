@@ -1,39 +1,35 @@
 import { cache } from "react"
-import { notion, NOTION_DATABASE_ID, NOTION_CONTENT_TYPES } from "./notion"
+import { notion, NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
 import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
-import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
+import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-endpoints"
 
 // 다양한 Notion 속성 타입에서 텍스트 추출
-function extractPlainText(property: unknown): string {
+function extractPlainText(property: any): string {
   if (!property) return ""
 
-  const prop = property as Record<string, unknown>
-
   // rich_text 타입
-  if (prop.rich_text && Array.isArray(prop.rich_text)) {
-    return (prop.rich_text as Array<{ plain_text: string }>).map((rt) => rt.plain_text).join("")
+  if (property.rich_text && Array.isArray(property.rich_text)) {
+    return property.rich_text.map((rt: any) => rt.plain_text).join("")
   }
 
   // title 타입
-  if (prop.title && Array.isArray(prop.title)) {
-    return (prop.title as Array<{ plain_text: string }>).map((rt) => rt.plain_text).join("")
+  if (property.title && Array.isArray(property.title)) {
+    return property.title.map((rt: any) => rt.plain_text).join("")
   }
 
   // formula 결과
-  const formula = prop.formula as Record<string, string> | undefined
-  if (formula?.string) {
-    return formula.string
+  if (property.formula?.string) {
+    return property.formula.string
   }
 
   // rollup 결과
-  const rollup = prop.rollup as Record<string, string> | undefined
-  if (rollup?.string) {
-    return rollup.string
+  if (property.rollup?.string) {
+    return property.rollup.string
   }
 
   // relation
-  if (prop.relation && Array.isArray(prop.relation)) {
-    return (prop.relation as Array<{ id: string }>).map((r) => r.id).join(", ")
+  if (property.relation && Array.isArray(property.relation)) {
+    return property.relation.map((r: any) => r.id).join(", ")
   }
 
   return ""
@@ -42,7 +38,7 @@ function extractPlainText(property: unknown): string {
 // Notion 페이지를 NotionItem으로 변환
 function parseNotionPage(page: PageObjectResponse): NotionItem | null {
   try {
-    const properties = page.properties as Record<string, unknown>
+    const properties = page.properties as Record<string, any>
 
     // 여러 가능한 속성명 시도 (데이터베이스 구조 유연성)
     const title =
@@ -54,8 +50,8 @@ function parseNotionPage(page: PageObjectResponse): NotionItem | null {
       ""
 
     const typeSelect =
-      (properties.type as Record<string, { name: string }> | undefined)?.select?.name ||
-      (properties["Type"] as Record<string, { name: string }> | undefined)?.select?.name ||
+      properties.type?.select?.name ||
+      properties["Type"]?.select?.name ||
       "project" // 기본값: project
 
     const descriptionText =
@@ -70,17 +66,17 @@ function parseNotionPage(page: PageObjectResponse): NotionItem | null {
       extractPlainText(properties["Content"]) ||
       ""
 
-    const tagsSelect: Array<{ name: string }> =
-      (properties.tags as Record<string, Array<{ name: string }>> | undefined)?.multi_select ||
-      (properties["Tags"] as Record<string, Array<{ name: string }>> | undefined)?.multi_select ||
-      (properties["항목"] as Record<string, Array<{ name: string }>> | undefined)?.multi_select ||
+    const tagsSelect =
+      properties.tags?.multi_select ||
+      properties["Tags"]?.multi_select ||
+      properties["항목"]?.multi_select ||
       []
 
     const dateDate =
-      (properties.date as Record<string, { start: string }> | undefined)?.date?.start ||
-      (properties["발행일"] as Record<string, { start: string }> | undefined)?.date?.start ||
-      (properties["Date"] as Record<string, { start: string }> | undefined)?.date?.start ||
-      (properties["Created"] as Record<string, string> | undefined)?.created_time ||
+      properties.date?.date?.start ||
+      properties["발행일"]?.date?.start ||
+      properties["Date"]?.date?.start ||
+      properties["Created"]?.created_time ||
       new Date().toISOString()
 
     const slugText = extractPlainText(properties.slug) ||
@@ -88,18 +84,18 @@ function parseNotionPage(page: PageObjectResponse): NotionItem | null {
       ""
 
     const publishedCheckbox =
-      (properties.published as Record<string, boolean> | undefined)?.checkbox ??
-      (properties["Published"] as Record<string, boolean> | undefined)?.checkbox ??
+      properties.published?.checkbox ??
+      properties["Published"]?.checkbox ??
       true // 기본값: 공개
 
     const featuredImageFile =
-      (properties.featuredImage as Record<string, Array<{ type: string; file?: { url: string }; external?: { url: string } }>> | undefined)?.files?.[0] ||
-      (properties["이미지"] as Record<string, Array<{ type: string; file?: { url: string }; external?: { url: string } }>> | undefined)?.files?.[0] ||
-      (properties["Image"] as Record<string, Array<{ type: string; file?: { url: string }; external?: { url: string } }>> | undefined)?.files?.[0]
+      properties.featuredImage?.files?.[0] ||
+      properties["이미지"]?.files?.[0] ||
+      properties["Image"]?.files?.[0]
 
     const categorySelect =
-      (properties.category as Record<string, { name: string }> | undefined)?.select?.name ||
-      (properties["Category"] as Record<string, { name: string }> | undefined)?.select?.name
+      properties.category?.select?.name ||
+      properties["Category"]?.select?.name
 
     if (!title) {
       console.debug(`⚠️  제목 없음 - 파싱 스킵`)
@@ -121,9 +117,9 @@ function parseNotionPage(page: PageObjectResponse): NotionItem | null {
     // 이미지 URL 추출
     let featuredImage: string | undefined
     if (featuredImageFile?.type === "file") {
-      featuredImage = (featuredImageFile.file as Record<string, string> | undefined)?.url
+      featuredImage = featuredImageFile.file?.url
     } else if (featuredImageFile?.type === "external") {
-      featuredImage = (featuredImageFile.external as Record<string, string> | undefined)?.url
+      featuredImage = featuredImageFile.external?.url
     }
 
     return {
@@ -132,7 +128,7 @@ function parseNotionPage(page: PageObjectResponse): NotionItem | null {
       type: typeSelect as "project" | "blog" | "experience",
       description,
       content,
-      tags: tagsSelect.map((tag: { name: string }) => tag.name),
+      tags: tagsSelect.map((tag: any) => tag.name),
       date: dateDate,
       slug: slug,
       published: publishedCheckbox,
@@ -140,7 +136,7 @@ function parseNotionPage(page: PageObjectResponse): NotionItem | null {
       category: categorySelect,
     }
   } catch (error) {
-    console.error("Notion 페이지 파싱 오류:", error as Error)
+    console.error("Notion 페이지 파싱 오류:", error)
     return null
   }
 }
@@ -164,25 +160,24 @@ export const getNotionDatabase = cache(async () => {
     console.log(`📊 Notion API 응답: 총 ${response.results.length}개 항목`)
 
     if (response.results.length > 0) {
-      const first = response.results[0] as PageObjectResponse
+      const first = response.results[0] as any
       console.log('📝 첫 번째 항목의 속성과 타입:')
       if (first.properties) {
         Object.keys(first.properties).forEach(key => {
-          const prop = first.properties[key] as unknown
-          const type = (prop as Record<string, unknown>)?.type || 'unknown'
+          const prop = first.properties[key]
+          const type = prop.type || 'unknown'
           let value = '(empty)'
           try {
-            const propRecord = prop as Record<string, unknown>
-            if (propRecord.rich_text && Array.isArray(propRecord.rich_text)) {
-              value = (propRecord.rich_text as Array<{ plain_text: string }>).map((rt) => rt.plain_text).join("")
-            } else if (propRecord.title && Array.isArray(propRecord.title)) {
-              value = (propRecord.title as Array<{ plain_text: string }>).map((rt) => rt.plain_text).join("")
-            } else if ((propRecord.select as Record<string, unknown>)?.name) {
-              value = (propRecord.select as Record<string, string>).name
-            } else if ((propRecord.date as Record<string, string>)?.start) {
-              value = (propRecord.date as Record<string, string>).start
+            if (prop.rich_text) {
+              value = prop.rich_text.map((rt: any) => rt.plain_text).join("")
+            } else if (prop.title) {
+              value = prop.title.map((rt: any) => rt.plain_text).join("")
+            } else if (prop.select) {
+              value = prop.select.name
+            } else if (prop.date) {
+              value = prop.date.start
             }
-          } catch {
+          } catch (e) {
             value = '(extraction error)'
           }
           const preview = value.substring(0, 30) || '(empty)'
@@ -192,8 +187,8 @@ export const getNotionDatabase = cache(async () => {
     }
 
     const items = response.results
-      .map((page) => parseNotionPage(page as PageObjectResponse))
-      .filter((item): item is NotionItem => item !== null)
+      .map((page: any) => parseNotionPage(page as PageObjectResponse))
+      .filter((item: any): item is NotionItem => item !== null)
 
     console.log(`✅ 파싱된 항목: ${items.length}개`)
     if (items.length > 0) {
@@ -203,9 +198,8 @@ export const getNotionDatabase = cache(async () => {
     }
 
     return items
-  } catch (error: unknown) {
-    const err = error as Record<string, unknown> | null
-    if (err?.code === 'object_not_found') {
+  } catch (error: any) {
+    if (error.code === 'object_not_found') {
       console.error('❌ Notion 데이터베이스 오류:')
       console.error(`   데이터베이스 ID를 찾을 수 없습니다: ${NOTION_DATABASE_ID}`)
       console.error('💡 해결 방법:')
@@ -213,7 +207,7 @@ export const getNotionDatabase = cache(async () => {
       console.error('   2. 통합 "notion-cms-project"이 데이터베이스와 공유되었는지 확인')
       console.error('   3. 데이터베이스 ID가 올바른지 확인 (https://www.notion.so/[DATABASE_ID])')
     } else {
-      console.error('❌ Notion API 오류:', err instanceof Error ? err.message : String(error))
+      console.error('❌ Notion API 오류:', error.message)
     }
     return []
   }

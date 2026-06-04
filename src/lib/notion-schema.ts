@@ -86,7 +86,7 @@ export const PAYMENT_PROPERTIES = {
 export interface NotionPropertyType {
   id: string
   type: string
-  [key: string]: unknown
+  [key: string]: any
 }
 
 export interface NotionDatabaseRow {
@@ -98,11 +98,11 @@ export interface NotionDatabaseRow {
   last_edited_by: { object: 'user'; id: string }
   cover: null | {
     type: string
-    [key: string]: unknown
+    [key: string]: any
   }
   icon: null | {
     type: string
-    [key: string]: unknown
+    [key: string]: any
   }
   parent: {
     type: 'database_id'
@@ -125,8 +125,7 @@ export interface NotionDatabaseRow {
  */
 export function extractTitle(property: NotionPropertyType): string {
   if (property.type === 'title' && property.title) {
-    const title = property.title as Array<{ plain_text: string }>
-    return title.map((t) => t.plain_text).join('')
+    return property.title.map((t: any) => t.plain_text).join('')
   }
   return ''
 }
@@ -136,17 +135,16 @@ export function extractTitle(property: NotionPropertyType): string {
  */
 export function extractText(property: NotionPropertyType): string {
   if (property.type === 'rich_text' && property.rich_text) {
-    const richText = property.rich_text as Array<{ plain_text: string }>
-    return richText.map((t) => t.plain_text).join('')
+    return property.rich_text.map((t: any) => t.plain_text).join('')
   }
   if (property.type === 'email' && property.email) {
-    return property.email as string
+    return property.email
   }
   if (property.type === 'phone_number' && property.phone_number) {
-    return property.phone_number as string
+    return property.phone_number
   }
   if (property.type === 'url' && property.url) {
-    return property.url as string
+    return property.url
   }
   return ''
 }
@@ -156,7 +154,7 @@ export function extractText(property: NotionPropertyType): string {
  */
 export function extractNumber(property: NotionPropertyType): number {
   if (property.type === 'number' && property.number !== null) {
-    return property.number as number
+    return property.number
   }
   return 0
 }
@@ -166,8 +164,7 @@ export function extractNumber(property: NotionPropertyType): number {
  */
 export function extractDate(property: NotionPropertyType): string {
   if (property.type === 'date' && property.date) {
-    const date = property.date as Record<string, string>
-    return date.start
+    return property.date.start
   }
   return new Date().toISOString()
 }
@@ -177,8 +174,7 @@ export function extractDate(property: NotionPropertyType): string {
  */
 export function extractSelect(property: NotionPropertyType): string {
   if (property.type === 'select' && property.select) {
-    const select = property.select as Record<string, string>
-    return select.name
+    return property.select.name
   }
   return ''
 }
@@ -188,8 +184,7 @@ export function extractSelect(property: NotionPropertyType): string {
  */
 export function extractMultiSelect(property: NotionPropertyType): string[] {
   if (property.type === 'multi_select' && property.multi_select) {
-    const multiSelect = property.multi_select as Array<{ name: string }>
-    return multiSelect.map((s) => s.name)
+    return property.multi_select.map((s: any) => s.name)
   }
   return []
 }
@@ -199,8 +194,7 @@ export function extractMultiSelect(property: NotionPropertyType): string[] {
  */
 export function extractRelation(property: NotionPropertyType): string[] {
   if (property.type === 'relation' && property.relation) {
-    const relation = property.relation as Array<{ id: string }>
-    return relation.map((r) => r.id)
+    return property.relation.map((r: any) => r.id)
   }
   return []
 }
@@ -208,10 +202,9 @@ export function extractRelation(property: NotionPropertyType): string[] {
 /**
  * Notion 롤업 속성에서 값 추출
  */
-export function extractRollup(property: NotionPropertyType): unknown {
+export function extractRollup(property: NotionPropertyType): any {
   if (property.type === 'rollup' && property.rollup) {
-    const rollup = property.rollup as Record<string, unknown>
-    return rollup.results
+    return property.rollup.results
   }
   return []
 }
