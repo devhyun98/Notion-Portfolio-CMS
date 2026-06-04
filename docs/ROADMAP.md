@@ -257,7 +257,7 @@ interface TocItem { ... }
 
 ## Phase 5: 최적화 및 배포
 
-**상태**: ✅ Layer 2 진행 중 (SEO 최적화 완료)
+**상태**: ✅ Layer 2 완료 (Vercel 배포 설정 완료)
 
 ### 목표
 프로덕션 배포를 위해 **성능, SEO, 보안**을 최적화하고 Vercel에 배포합니다.
@@ -290,7 +290,30 @@ interface TocItem { ... }
   - Person (홈페이지, About, Resume 페이지)
   - 각 페이지에 JSON-LD script 태그로 삽입
 
-#### 5-2. 성능 최적화 (2-3일)
+#### 5-2. Vercel 배포 설정 ✅ 완료
+- ✅ **vercel.json 생성**
+  - buildCommand, framework, nodeVersion 설정
+  - 필수 환경 변수 정의 (NOTION_API_KEY, NOTION_DATABASE_ID, NEXT_PUBLIC_SITE_URL)
+  - sitemap.xml Content-Type 헤더 설정
+
+- ✅ **배포 가이드 문서 작성**
+  - `docs/DEPLOYMENT.md`: 상세 배포 가이드 (11KB)
+    - Vercel 계정 설정 및 GitHub 연결
+    - 환경 변수 설정 방법
+    - 자동 배포 및 Preview Deployment
+    - 커스텀 도메인 설정
+    - 배포 후 검증 및 모니터링
+    - 트러블슈팅 가이드
+
+- ✅ **배포 체크리스트 작성**
+  - `docs/DEPLOYMENT_CHECKLIST.md`: Vercel 배포 체크리스트 (16KB)
+    - Phase 1: 배포 전 최종 점검
+    - Phase 2: Vercel 배포 절차
+    - Phase 3: 배포 후 검증
+    - Phase 4: 배포 후 모니터링
+    - Phase 5: 커스텀 도메인 설정
+
+#### 5-3. 성능 최적화 (2-3일) - 진행 예정
 - **이미지 최적화**
   - Next.js `<Image>` 컴포넌트 활용
   - lazy loading, 자동 포맷 변환 (webp)
@@ -312,14 +335,14 @@ interface TocItem { ... }
   - CLS < 0.1 달성
   - SEO 점수 90점 이상
 
-#### 5-3. 환경 변수 및 보안 (1-2일)
+#### 5-4. 환경 변수 및 보안 (1-2일) - 진행 예정
 - `.env.local` 설정 검증
   - `NOTION_API_KEY` 안전한 저장
   - `NOTION_DATABASE_ID` 설정
 - 의존성 보안 검사 (`npm audit`)
 - CORS 및 CSP 헤더 설정
 
-#### 5-4. Vercel 배포 (1-2일)
+#### 5-5. Vercel 배포 실행 (1-2일) - 진행 예정
 - Vercel 프로젝트 생성 및 연결
 - GitHub 레포지토리 연결
 - 환경 변수 설정 (Vercel Secrets)
@@ -327,7 +350,7 @@ interface TocItem { ... }
 - Production Deployment 설정 (main 브랜치 푸시 시 자동 배포)
 - 배포 후 성능 모니터링
 
-#### 5-5. 테스트 및 검증 (1-2일)
+#### 5-6. 테스트 및 검증 (1-2일) - 진행 예정
 - 모든 링크 검증
 - 모바일/데스크톱 크로스 브라우저 테스트
 - Lighthouse 성능 검사
@@ -349,9 +372,16 @@ interface TocItem { ... }
 - [x] JSON-LD 마크업 모든 주요 페이지에 추가
 - [x] 환경 변수 기반 URL 설정 (NEXT_PUBLIC_SITE_URL)
 
-### 5-2, 5-3, 5-4, 5-5 향후 단계
+### 5-2 Vercel 배포 설정 완료 기준
+- [x] vercel.json 생성 및 구성
+- [x] docs/DEPLOYMENT.md 작성 (배포 가이드)
+- [x] docs/DEPLOYMENT_CHECKLIST.md 작성 (배포 체크리스트)
+- [x] 모든 파일 UTF-8 인코딩 확인
+- [x] git commit 완료
+
+### 5-3, 5-4, 5-5, 5-6 향후 단계
 - [ ] Lighthouse 점수: 성능 90점 이상, SEO 95점 이상
-- [ ] Vercel 배포 완료
+- [ ] Vercel 배포 실행
 - [ ] 이미지 최적화 (Next.js Image 컴포넌트)
 - [ ] 성능 최적화 및 캐싱 전략
 - [ ] 환경 변수 및 보안 검사
@@ -367,8 +397,8 @@ interface TocItem { ... }
 | **Phase 2** | 공통 모듈/컴포넌트 | 3-4일 | ~6시간 | ✅ 완료 |
 | **Phase 3** | 핵심 기능 (페이지) | 7-10일 | ~8시간 | ✅ 완료 |
 | **Phase 4** | 추가 기능 | 5-7일 | ~3시간 | ✅ 완료 |
-| **Phase 5** | 최적화 및 배포 | 6-8일 | ~1시간 (5-1) | ✅ 5-1 완료 |
-| **총 소요 시간** | - | **약 3-4주** | **~20시간** | Phase 5-1 진행 중 ✅ |
+| **Phase 5** | 최적화 및 배포 | 6-8일 | ~2시간 (5-1, 5-2) | ✅ 5-1, 5-2 완료 |
+| **총 소요 시간** | - | **약 3-4주** | **~22시간** | Phase 5-2 완료, 5-3~5-6 대기 |
 
 ---
 
@@ -393,6 +423,38 @@ interface TocItem { ... }
 - `src/components/content/filter-sheet.tsx` - 모바일 필터 Sheet
 - `src/hooks/use-filter-sync.ts` - URL 필터 동기화 훅
 - `src/lib/about-data.ts` - About 페이지 정적 데이터
+
+---
+
+### ✅ Phase 5-2 Vercel 배포 설정 완료! 🎉
+
+**2026-06-04 구현된 기능:**
+- [x] vercel.json 배포 설정 파일 생성
+- [x] docs/DEPLOYMENT.md 배포 가이드 문서 작성 (11KB)
+  - Vercel 계정 설정 및 GitHub 연결 방법
+  - 환경 변수 설정 (NOTION_API_KEY, NOTION_DATABASE_ID, NEXT_PUBLIC_SITE_URL)
+  - 자동 배포 및 Preview Deployment 설정
+  - 커스텀 도메인 설정 가이드
+  - 배포 후 검증 및 모니터링 방법
+  - 트러블슈팅 가이드
+
+- [x] docs/DEPLOYMENT_CHECKLIST.md 배포 체크리스트 작성 (16KB)
+  - Phase 1: 배포 전 최종 점검 (코드, 환경, Notion DB)
+  - Phase 2: Vercel 배포 절차 (계정 설정, 환경 변수)
+  - Phase 3: 배포 후 검증 (페이지, SEO, 성능, 기능)
+  - Phase 4: 배포 후 모니터링 (Analytics, Search Console)
+  - Phase 5: 커스텀 도메인 설정 (선택사항)
+
+**새로운 파일:**
+- `vercel.json` - Vercel 배포 설정 (JSON)
+- `docs/DEPLOYMENT.md` - Vercel 배포 가이드 (마크다운)
+- `docs/DEPLOYMENT_CHECKLIST.md` - 배포 체크리스트 (마크다운)
+
+**이제 가능한 것:**
+- Vercel에 GitHub 연결하여 자동 배포 설정 가능
+- Preview Deployment로 PR 미리보기 가능
+- 커스텀 도메인 연결 가능
+- Google Search Console 등록 가능
 
 ---
 
@@ -444,24 +506,31 @@ interface TocItem { ... }
 
 ### 📋 Phase 5 다음 단계
 
-2. **성능 최적화** (2-3일) - 진행 예정
+**1. ✅ Phase 5-1: SEO 최적화** - 완료
+**2. ✅ Phase 5-2: Vercel 배포 설정** - 완료
+
+**3. Phase 5-3: 성능 최적화** (2-3일) - 진행 예정
    - 이미지 최적화 (Next.js Image 컴포넌트)
    - 번들 최적화
    - 캐싱 전략 강화
    - Lighthouse 점수 개선
 
-3. **Vercel 배포** (1-2일) - 진행 예정
-   - GitHub 연결
-   - 환경 변수 설정
-   - Preview/Production 배포 설정
-   - 성능 모니터링
+4. **Phase 5-4: 환경 변수 및 보안** (1-2일) - 진행 예정
+   - 의존성 보안 검사 (`npm audit`)
+   - CORS/CSP 헤더 설정
 
-4. **테스트 및 검증** (1-2일) - 진행 예정
-   - 전체 기능 테스트
+5. **Phase 5-5: Vercel 배포 실행** (1-2일) - 진행 예정
+   - Vercel 프로젝트 생성 및 GitHub 연결
+   - 환경 변수 설정 (Secrets)
+   - 초기 배포 및 성공 확인
+
+6. **Phase 5-6: 테스트 및 검증** (1-2일) - 진행 예정
+   - 전체 기능 검증
+   - Lighthouse 성능 검사
    - 크로스 브라우저 테스트
-   - SEO 검증 (sitemap, robots, JSON-LD)
+   - SEO 메타데이터 검증
 
 ---
 
 **마지막 업데이트**: 2026-06-04
-**📊 진행 상황**: Phase 1-4 완료 ✅ | Phase 5-1 완료 ✅ | Phase 5-2~5 진행 예정
+**📊 진행 상황**: Phase 1-4 완료 ✅ | Phase 5-1, 5-2 완료 ✅ | Phase 5-3~5-6 진행 예정
