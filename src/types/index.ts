@@ -44,6 +44,7 @@ export interface ProjectDetail extends NotionItem {
   techStack: string[]
   demoUrl?: string
   sourceUrl?: string
+  [key: string]: unknown
 }
 
 export interface BlogDetail extends NotionItem {
@@ -51,6 +52,7 @@ export interface BlogDetail extends NotionItem {
   readingTime: number
   updatedAt?: string
   tableOfContents: TocItem[]
+  [key: string]: unknown
 }
 
 export interface ExperienceDetail extends NotionItem {
@@ -74,7 +76,7 @@ export interface NotionDatabaseItem {
   created_time: string
   last_edited_time: string
   properties: {
-    [key: string]: any
+    [key: string]: unknown
   }
 }
 

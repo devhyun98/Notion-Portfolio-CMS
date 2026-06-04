@@ -4,8 +4,7 @@ import { useEffect, useState } from "react"
 
 // 모바일 기기 감지 훅 (768px 기준)
 export function useMobile(breakpoint: number = 768): boolean {
-  const [isMobile, setIsMobile] = useState<boolean>(false)
-  const [isLoaded, setIsLoaded] = useState<boolean>(false)
+  const [isMobile, setIsMobile] = useState<boolean | null>(null)
 
   useEffect(() => {
     // 초기 크기 확인
@@ -13,8 +12,7 @@ export function useMobile(breakpoint: number = 768): boolean {
       setIsMobile(window.innerWidth < breakpoint)
     }
 
-    // 클라이언트 로드 확인
-    setIsLoaded(true)
+    // 클라이언트 로드 완료 및 초기 크기 확인
     checkMobile()
 
     // 리사이즈 이벤트 리스너
@@ -29,8 +27,8 @@ export function useMobile(breakpoint: number = 768): boolean {
     }
   }, [breakpoint])
 
-  // 서버 렌더링 시에는 false 반환 (클라이언트 로드 전)
-  return isLoaded ? isMobile : false
+  // 서버 렌더링 시에는 false 반환 (클라이언트 로드 전), 로드 후 실제 값 반환
+  return isMobile ?? false
 }
 
 // 데스크톱 여부 확인 (모바일의 반대)
@@ -47,16 +45,9 @@ interface MediaQueryResult {
 }
 
 export function useMediaQuery(): MediaQueryResult {
-  const [mediaQuery, setMediaQuery] = useState<MediaQueryResult>({
-    isMobile: false,
-    isTablet: false,
-    isDesktop: false,
-  })
-  const [isLoaded, setIsLoaded] = useState<boolean>(false)
+  const [mediaQuery, setMediaQuery] = useState<MediaQueryResult | null>(null)
 
   useEffect(() => {
-    setIsLoaded(true)
-
     const checkMediaQuery = () => {
       setMediaQuery({
         isMobile: window.innerWidth < 640,
@@ -74,13 +65,10 @@ export function useMediaQuery(): MediaQueryResult {
     }
   }, [])
 
-  if (!isLoaded) {
-    return {
-      isMobile: false,
-      isTablet: false,
-      isDesktop: true,
-    }
+  // 서버 렌더링 또는 로드 전에는 데스크톱 반환
+  return mediaQuery ?? {
+    isMobile: false,
+    isTablet: false,
+    isDesktop: true,
   }
-
-  return mediaQuery
 }

@@ -7,7 +7,7 @@ interface UseSearchProps {
   searchableFields?: string[]
 }
 
-export function useSearch<T extends Record<string, any>>(
+export function useSearch<T extends Record<string, unknown>>(
   items: T[],
   { searchableFields = ["title", "description"] }: UseSearchProps = {}
 ) {
