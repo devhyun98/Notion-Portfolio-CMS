@@ -50,11 +50,9 @@ export function Header() {
 
           {/* 모바일 메뉴 */}
           <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon">
-                <Menu className="h-5 w-5" />
-                <span className="sr-only">메뉴</span>
-              </Button>
+            <SheetTrigger className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-md hover:bg-accent hover:text-accent-foreground">
+              <Menu className="h-5 w-5" />
+              <span className="sr-only">메뉴</span>
             </SheetTrigger>
             <SheetContent side="right">
               <nav className="space-y-4 mt-4">

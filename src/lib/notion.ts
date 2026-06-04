@@ -1,11 +1,14 @@
-import { Client } from "@notionhq/client"
+import { Client as NotionClient } from "@notionhq/client"
 
 // Notion API 클라이언트 초기화
-const notion = new Client({
-  auth: process.env.NOTION_API_KEY,
-})
+const apiKey = process.env.NOTION_API_KEY
+if (!apiKey) {
+  console.warn('⚠️ NOTION_API_KEY 환경변수가 설정되지 않았습니다.')
+}
 
-export default notion
+export const notion = new NotionClient({
+  auth: apiKey,
+})
 
 // 환경 변수 검증
 export function validateNotionEnv() {

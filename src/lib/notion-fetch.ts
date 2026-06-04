@@ -1,5 +1,5 @@
 import { cache } from "react"
-import notion, { NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
+import { notion, NOTION_DATABASE_ID, NOTION_CONTENT_TYPES, CACHE_CONFIG } from "./notion"
 import type { NotionItem, ProjectDetail, BlogDetail } from "@/types"
 import { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-endpoints"
 
