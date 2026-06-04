@@ -14,6 +14,7 @@ export interface FilteredProject {
   date: string
   slug: string
   featuredImage?: string
+  [key: string]: unknown
 }
 
 interface ProjectsFilterProps {

@@ -1,4 +1,8 @@
 import { Client as NotionClient } from "@notionhq/client"
+import { warnIfMissingEnv } from "./validate-env"
+
+// 환경 변수 경고 (개발 환경에서만 표시)
+warnIfMissingEnv()
 
 // Notion API 클라이언트 초기화
 const apiKey = process.env.NOTION_API_KEY
@@ -20,7 +24,7 @@ if (typeof notion.databases?.query !== 'function') {
   })
 }
 
-// 환경 변수 검증
+// 환경 변수 검증 (레거시 함수 - validate-env.ts 사용 권장)
 export function validateNotionEnv() {
   const errors: string[] = []
 

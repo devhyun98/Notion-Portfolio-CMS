@@ -15,6 +15,7 @@ export interface FilteredBlog {
   slug: string
   readingTime: number
   category?: string
+  [key: string]: unknown
 }
 
 interface BlogsFilterProps {

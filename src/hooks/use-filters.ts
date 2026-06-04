@@ -10,7 +10,7 @@ interface UseFiltersProps {
   search?: string
 }
 
-export function useFilters<T extends Record<string, any>>(
+export function useFilters<T extends Record<string, unknown>>(
   items: T[],
   {
     tags: initialTags = [],
@@ -37,7 +37,10 @@ export function useFilters<T extends Record<string, any>>(
     return items.filter((item) => {
       // 태그 필터링
       if (selectedTags.length > 0) {
-        const itemTags = item.tags || []
+        const itemTags = (item.tags as string[]) || []
+        if (!Array.isArray(itemTags)) {
+          return false
+        }
         const hasMatchingTag = selectedTags.some((tag: string) =>
           itemTags.includes(tag)
         )
