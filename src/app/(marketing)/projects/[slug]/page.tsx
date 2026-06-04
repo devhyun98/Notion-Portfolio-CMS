@@ -16,6 +16,7 @@ import { TagBadge } from '@/components/content/tag-badge'
 import { RelatedProjects } from '@/components/content/related-content'
 import { getProjects, getProject } from '@/lib/notion-fetch'
 import { markdownToHtml } from '@/lib/markdown'
+import { siteConfig } from '@/lib/config'
 import type { Metadata } from 'next'
 
 // 동적 파라미터 생성 (정적 생성용)
@@ -41,15 +42,29 @@ export async function generateMetadata({
     }
   }
 
+  const url = `${siteConfig.url}/projects/${project.slug}`
+
   return {
     title: `${project.title} | Notion Portfolio`,
     description: project.description,
     openGraph: {
       title: project.title,
       description: project.description,
+      url,
+      type: 'article',
       images: project.featuredImage
-        ? [project.featuredImage]
+        ? [{ url: project.featuredImage, width: 1200, height: 630, alt: project.title }]
         : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: project.title,
+      description: project.description,
+      images: project.featuredImage ? [project.featuredImage] : [],
+    },
+    robots: 'index, follow',
+    alternates: {
+      canonical: url,
     },
   }
 }
@@ -70,8 +85,31 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   // 마크다운을 HTML로 변환
   const htmlContent = await markdownToHtml(project.content)
 
+  // Schema.org JSON-LD 마크업
+  const softwareAppSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: project.title,
+    description: project.description,
+    image: project.featuredImage || `${siteConfig.url}/og.png`,
+    url: `${siteConfig.url}/projects/${project.slug}`,
+    datePublished: project.date,
+    creator: {
+      '@type': 'Person',
+      name: 'Developer',
+      url: siteConfig.url,
+    },
+    keywords: project.tags.join(', '),
+    applicationCategory: 'Developer Tools',
+  }
+
   return (
-    <div className="space-y-8">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppSchema) }}
+      />
+      <div className="space-y-8">
       {/* 브레드크럼 */}
       <Breadcrumb>
         <BreadcrumbList>
@@ -172,5 +210,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         maxItems={3}
       />
     </div>
+    </>
   )
 }

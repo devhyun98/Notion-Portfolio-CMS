@@ -10,18 +10,60 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
 import { aboutData } from '@/lib/about-data'
+import { siteConfig } from '@/lib/config'
+import type { Metadata } from 'next'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: '소개 | Notion Portfolio',
   description: '개발자 소개 및 기술 스택',
+  openGraph: {
+    title: '소개',
+    description: '개발자 소개 및 기술 스택',
+    url: `${siteConfig.url}/about`,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: '소개',
+    description: '개발자 소개 및 기술 스택',
+  },
+  robots: 'index, follow',
+  alternates: {
+    canonical: `${siteConfig.url}/about`,
+  },
 }
 
 const skills = aboutData.skills
 const experience = aboutData.experience
 
 export default function AboutPage() {
+  // Schema.org JSON-LD 마크업
+  const personSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: aboutData.profile.name || 'Developer',
+    url: siteConfig.url,
+    jobTitle: aboutData.profile.title || 'Full Stack Developer',
+    email: aboutData.profile.email,
+    sameAs: [
+      aboutData.profile.github,
+      aboutData.profile.linkedin,
+      aboutData.profile.twitter,
+    ].filter((url): url is string => !!url && typeof url === 'string'),
+    hasCredential: experience.map((job) => ({
+      '@type': 'EducationalOccupationalCredential',
+      name: job.title,
+      url: siteConfig.url,
+    })),
+  }
+
   return (
-    <div className="space-y-16">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
+      <div className="space-y-16">
       {/* 브레드크럼 */}
       <Breadcrumb>
         <BreadcrumbList>
@@ -174,5 +216,6 @@ export default function AboutPage() {
         </div>
       </section>
     </div>
+    </>
   )
 }

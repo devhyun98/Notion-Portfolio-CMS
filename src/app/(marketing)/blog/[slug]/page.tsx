@@ -16,6 +16,7 @@ import { TagBadge } from '@/components/content/tag-badge'
 import { RelatedBlogs } from '@/components/content/related-content'
 import { getBlogs, getBlog } from '@/lib/notion-fetch'
 import { markdownToHtml, extractTableOfContents } from '@/lib/markdown'
+import { siteConfig } from '@/lib/config'
 import type { Metadata } from 'next'
 
 // 동적 파라미터 생성 (정적 생성용)
@@ -41,13 +42,32 @@ export async function generateMetadata({
     }
   }
 
+  const url = `${siteConfig.url}/blog/${blog.slug}`
+
   return {
     title: `${blog.title} | Notion Portfolio`,
     description: blog.description,
     openGraph: {
       title: blog.title,
       description: blog.description,
+      url,
+      type: 'article',
+      publishedTime: blog.date,
+      modifiedTime: blog.updatedAt || blog.date,
+      images: blog.featuredImage
+        ? [{ url: blog.featuredImage, width: 1200, height: 630, alt: blog.title }]
+        : [],
+      tags: blog.tags,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: blog.title,
+      description: blog.description,
       images: blog.featuredImage ? [blog.featuredImage] : [],
+    },
+    robots: 'index, follow',
+    alternates: {
+      canonical: url,
     },
   }
 }
@@ -70,8 +90,36 @@ export default async function BlogPage({ params }: BlogPageProps) {
   // 목차 추출
   const toc = extractTableOfContents(blog.content)
 
+  // Schema.org JSON-LD 마크업
+  const blogPostingSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: blog.title,
+    description: blog.description,
+    image: blog.featuredImage || `${siteConfig.url}/og.png`,
+    url: `${siteConfig.url}/blog/${blog.slug}`,
+    datePublished: blog.date,
+    dateModified: blog.updatedAt || blog.date,
+    author: {
+      '@type': 'Person',
+      name: 'Developer',
+      url: siteConfig.url,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    keywords: blog.tags.join(', '),
+  }
+
   return (
-    <div className="space-y-8">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+      />
+      <div className="space-y-8">
       {/* 브레드크럼 */}
       <Breadcrumb>
         <BreadcrumbList>
@@ -182,5 +230,6 @@ export default async function BlogPage({ params }: BlogPageProps) {
         maxItems={3}
       />
     </div>
+    </>
   )
 }

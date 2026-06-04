@@ -4,10 +4,28 @@ import { ProjectCard } from '@/components/content/project-card'
 import { BlogCard } from '@/components/content/blog-card'
 import { getRecentItems } from '@/lib/notion-fetch'
 import { siteConfig } from '@/lib/config'
+import type { Metadata } from 'next'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
+  openGraph: {
+    title: siteConfig.name,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    type: 'website',
+    images: siteConfig.ogImage ? [siteConfig.ogImage] : [],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: siteConfig.ogImage ? [siteConfig.ogImage] : [],
+  },
+  robots: 'index, follow',
+  alternates: {
+    canonical: siteConfig.url,
+  },
 }
 
 export default async function HomePage() {
@@ -20,8 +38,25 @@ export default async function HomePage() {
     .filter((item) => item.type === 'blog')
     .slice(0, 3)
 
+  // Schema.org JSON-LD 마크업
+  const personSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Developer',
+    url: siteConfig.url,
+    sameAs: Object.values(siteConfig.links).filter(
+      (link): link is string => typeof link === 'string' && link.startsWith('http')
+    ),
+    jobTitle: 'Full Stack Developer',
+  }
+
   return (
-    <div className="space-y-16">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
+      <div className="space-y-16">
       {/* Hero 섹션 */}
       <section className="py-12 md:py-20">
         <div className="space-y-6 text-center">
@@ -121,5 +156,6 @@ export default async function HomePage() {
         </div>
       </section>
     </div>
+    </>
   )
 }

@@ -3,8 +3,8 @@ import type { SiteConfig, NavItem } from "@/types"
 export const siteConfig: SiteConfig = {
   name: "Notion Portfolio CMS",
   description: "Notion API를 활용한 개발자 포트폴리오 CMS 사이트",
-  url: "https://notion-portfolio.example.com",
-  ogImage: "https://notion-portfolio.example.com/og.png",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://notion-portfolio.example.com",
+  ogImage: process.env.NEXT_PUBLIC_OG_IMAGE || "https://notion-portfolio.example.com/og.png",
   mailSupport: "devhyun98@gmail.com",
   links: {
     twitter: "https://twitter.com",

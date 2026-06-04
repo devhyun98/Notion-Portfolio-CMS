@@ -11,6 +11,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
+import { siteConfig } from '@/lib/config'
 
 // 이력서 데이터
 const resumeData = {
@@ -101,8 +102,34 @@ const resumeData = {
 }
 
 export default function ResumePage() {
+  // Schema.org JSON-LD 마크업 - Person 및 이력서 정보
+  const personWithResumeSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: resumeData.personal.name,
+    url: siteConfig.url,
+    jobTitle: resumeData.personal.title,
+    email: resumeData.personal.email,
+    telephone: resumeData.personal.phone,
+    location: {
+      '@type': 'Place',
+      name: resumeData.personal.location,
+    },
+    knowsAbout: Object.values(resumeData.skills).flat(),
+    hasCredential: resumeData.certifications.map((cert) => ({
+      '@type': 'EducationalOccupationalCredential',
+      name: cert.name,
+      credentialCategory: 'Professional Certification',
+    })),
+  }
+
   return (
-    <div className="space-y-8">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personWithResumeSchema) }}
+      />
+      <div className="space-y-8">
       {/* 브레드크럼 */}
       <Breadcrumb>
         <BreadcrumbList>
@@ -283,5 +310,6 @@ export default function ResumePage() {
         </section>
       )}
     </div>
+    </>
   )
 }

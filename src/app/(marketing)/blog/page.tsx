@@ -1,9 +1,26 @@
 import { BlogsFilter } from '@/components/content/blogs-filter'
 import { getBlogs } from '@/lib/notion-fetch'
+import { siteConfig } from '@/lib/config'
+import type { Metadata } from 'next'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: '블로그 | Notion Portfolio',
   description: '개발 관련 글과 경험을 공유합니다.',
+  openGraph: {
+    title: '블로그',
+    description: '개발 관련 글과 경험을 공유합니다.',
+    url: `${siteConfig.url}/blog`,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: '블로그',
+    description: '개발 관련 글과 경험을 공유합니다.',
+  },
+  robots: 'index, follow',
+  alternates: {
+    canonical: `${siteConfig.url}/blog`,
+  },
 }
 
 export default async function BlogPage() {
