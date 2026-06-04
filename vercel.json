@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "buildCommand": "npm ci && npm run build",
+  "buildCommand": "npm run build",
   "devCommand": "next dev",
-  "installCommand": "npm ci --legacy-peer-deps",
+  "installCommand": "npm install --legacy-peer-deps",
   "framework": "nextjs",
   "headers": [
     {
