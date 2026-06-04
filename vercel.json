@@ -4,7 +4,6 @@
   "devCommand": "next dev",
   "installCommand": "npm ci --legacy-peer-deps",
   "framework": "nextjs",
-  "nodeVersion": "24.x",
   "headers": [
     {
       "source": "/sitemap.xml",
