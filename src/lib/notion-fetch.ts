@@ -102,7 +102,6 @@ function parseNotionPage(page: PageObjectResponse): NotionItem | null {
       (properties["Category"] as Record<string, { name: string }> | undefined)?.select?.name
 
     if (!title) {
-      console.debug(`⚠️  제목 없음 - 파싱 스킵`)
       return null
     }
 
@@ -140,7 +139,6 @@ function parseNotionPage(page: PageObjectResponse): NotionItem | null {
       category: categorySelect,
     }
   } catch (error) {
-    console.error("Notion 페이지 파싱 오류:", error as Error)
     return null
   }
 }
@@ -150,8 +148,6 @@ export const getNotionDatabase = cache(async () => {
   try {
     // 환경 변수 검증
     if (!NOTION_DATABASE_ID) {
-      console.error('❌ 설정 오류: NOTION_DATABASE_ID가 설정되지 않았습니다.')
-      console.error('💡 해결: .env.local 파일에 NOTION_DATABASE_ID를 설정하세요.')
       return []
     }
 
@@ -161,60 +157,12 @@ export const getNotionDatabase = cache(async () => {
       // 클라이언트에서 JavaScript로 처리
     })
 
-    console.log(`📊 Notion API 응답: 총 ${response.results.length}개 항목`)
-
-    if (response.results.length > 0) {
-      const first = response.results[0] as PageObjectResponse
-      console.log('📝 첫 번째 항목의 속성과 타입:')
-      if (first.properties) {
-        Object.keys(first.properties).forEach(key => {
-          const prop = first.properties[key] as unknown
-          const type = (prop as Record<string, unknown>)?.type || 'unknown'
-          let value = '(empty)'
-          try {
-            const propRecord = prop as Record<string, unknown>
-            if (propRecord.rich_text && Array.isArray(propRecord.rich_text)) {
-              value = (propRecord.rich_text as Array<{ plain_text: string }>).map((rt) => rt.plain_text).join("")
-            } else if (propRecord.title && Array.isArray(propRecord.title)) {
-              value = (propRecord.title as Array<{ plain_text: string }>).map((rt) => rt.plain_text).join("")
-            } else if ((propRecord.select as Record<string, unknown>)?.name) {
-              value = (propRecord.select as Record<string, string>).name
-            } else if ((propRecord.date as Record<string, string>)?.start) {
-              value = (propRecord.date as Record<string, string>).start
-            }
-          } catch {
-            value = '(extraction error)'
-          }
-          const preview = value.substring(0, 30) || '(empty)'
-          console.log(`   - [${type}] ${key}: "${preview}"`)
-        })
-      }
-    }
-
     const items = response.results
       .map((page) => parseNotionPage(page as PageObjectResponse))
       .filter((item): item is NotionItem => item !== null)
 
-    console.log(`✅ 파싱된 항목: ${items.length}개`)
-    if (items.length > 0) {
-      items.forEach((item, idx) => {
-        console.log(`   [${idx + 1}] ${item.title} (type: ${item.type})`)
-      })
-    }
-
     return items
   } catch (error: unknown) {
-    const err = error as Record<string, unknown> | null
-    if (err?.code === 'object_not_found') {
-      console.error('❌ Notion 데이터베이스 오류:')
-      console.error(`   데이터베이스 ID를 찾을 수 없습니다: ${NOTION_DATABASE_ID}`)
-      console.error('💡 해결 방법:')
-      console.error('   1. Notion에서 데이터베이스가 존재하는지 확인')
-      console.error('   2. 통합 "notion-cms-project"이 데이터베이스와 공유되었는지 확인')
-      console.error('   3. 데이터베이스 ID가 올바른지 확인 (https://www.notion.so/[DATABASE_ID])')
-    } else {
-      console.error('❌ Notion API 오류:', err instanceof Error ? err.message : String(error))
-    }
     return []
   }
 })
