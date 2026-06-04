@@ -1,5 +1,8 @@
 'use client'
 
+import { useRef } from 'react'
+import jsPDF from 'jspdf'
+import html2canvas from 'html2canvas'
 import { Download, Mail, Phone, MapPin, Globe } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -102,6 +105,53 @@ const resumeData = {
 }
 
 export default function ResumePage() {
+  const contentRef = useRef<HTMLDivElement>(null)
+
+  // PDF 다운로드 함수
+  const downloadPDF = async () => {
+    if (!contentRef.current) return
+
+    try {
+      // HTML을 Canvas로 변환
+      const canvas = await html2canvas(contentRef.current, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: '#ffffff',
+      })
+
+      // PDF 문서 생성
+      const pdf = new jsPDF({
+        orientation: 'portrait',
+        unit: 'mm',
+        format: 'a4',
+      })
+
+      const imgWidth = 210 // A4 너비 (mm)
+      const imgHeight = (canvas.height * imgWidth) / canvas.width
+      let heightLeft = imgHeight
+
+      let position = 0
+
+      // 여러 페이지로 나누어서 추가
+      const imgData = canvas.toDataURL('image/png')
+      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight)
+      heightLeft -= 297 // A4 높이 (mm)
+
+      while (heightLeft > 0) {
+        position = heightLeft - imgHeight
+        pdf.addPage()
+        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight)
+        heightLeft -= 297
+      }
+
+      // PDF 저장
+      pdf.save('resume.pdf')
+    } catch (error) {
+      console.error('PDF 생성 중 오류:', error)
+      alert('PDF 다운로드 중 오류가 발생했습니다.')
+    }
+  }
+
   // Schema.org JSON-LD 마크업 - Person 및 이력서 정보
   const personWithResumeSchema = {
     '@context': 'https://schema.org',
@@ -148,16 +198,15 @@ export default function ResumePage() {
         <Button
           size="sm"
           className="gap-2"
-          onClick={() => {
-            // PDF 다운로드 로직 (나중에 구현 예정)
-            alert('PDF 다운로드 기능은 준비 중입니다.')
-          }}
+          onClick={downloadPDF}
         >
           <Download className="w-4 h-4" />
           PDF 다운로드
         </Button>
       </div>
 
+      {/* 이력서 컨텐츠 (PDF 변환용 ref) */}
+      <div ref={contentRef}>
       {/* 개인 정보 섹션 */}
       <section className="space-y-6">
         <div className="space-y-3">
@@ -309,6 +358,7 @@ export default function ResumePage() {
           </div>
         </section>
       )}
+      </div>
     </div>
     </>
   )
