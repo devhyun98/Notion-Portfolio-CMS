@@ -7,14 +7,17 @@
   "env": {
     "NOTION_API_KEY": {
       "description": "Notion API Key (from Notion Settings → API Integration)",
+      "type": "string",
       "required": true
     },
     "NOTION_DATABASE_ID": {
       "description": "Notion Database ID (from database URL)",
+      "type": "string",
       "required": true
     },
     "NEXT_PUBLIC_SITE_URL": {
       "description": "Site URL for SEO and meta tags (e.g., https://yourname.vercel.app)",
+      "type": "string",
       "required": true
     }
   },
